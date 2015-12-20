@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Imager</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+	<header class="header">
+		<div class="headbar">
+			<h1 class="logo">Imager</h1>
+			<nav class="nav">
+				<ul>
+					<li><a href="/">首页</a></li>
+					<li><a href="/action">操作</a></li>
+					<li><a href="/detail">情况</a></li>
+					<li><a href="/help">帮助</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<section class="container">
+		<div class="error">
+			<p><%= message%> 3s后自动返回上个页面..</p>
+		</div>
+	</section>
+	<footer class="footer">
+		<p>图片CDN上传工具</p>
+	</footer>
+	<script type="text/javascript">
+		setTimeout(function() {
+			history.go(-1);
+		}, 2000);
+	</script>
+</body>
+</html>

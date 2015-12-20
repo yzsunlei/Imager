@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Imager</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+	<header class="header">
+		<div class="headbar">
+			<h1 class="logo">Imager</h1>
+			<nav class="nav">
+				<ul>
+					<li><a href="/">首页</a></li>
+					<li><a href="/action">操作</a></li>
+					<li><a href="/detail">情况</a></li>
+					<li><a href="/help">帮助</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<section class="container">
+		<div class="upload-box" id="J_upload-box">
+			<form name="upload" method="post" action="/" enctype="multipart/form-data" onsubmit="return checkForm();">
+				<input type="file" name="file" id="filename" value="选择文件"/>
+				<input type="submit" name="submit" value="点击上传"/>
+			</form>
+		</div>
+
+		<div class="login-box" id="J_login-box">
+			<form name="verify" method="post" action="/login">
+				<input type="input" name="verify" id="verify" placeholder="校验码"/>
+				<input type="submit" name="submit" value="进入"/>
+			</form>
+		</div>
+
+		<div class="upload-img" id="J_upload-img">
+			<% result.forEach(function(item){ %>  
+				<% if (item.type != 'folder') { %>
+					<div class="item">
+						<a href="http://misigou.b0.upaiyun.com<%= folder%>/<%= item.name%>" target="_blank" title="查看原图">
+							<img src="http://misigou.b0.upaiyun.com<%= folder%>/<%= item.name%>"/>
+						</a>
+						<a href="#" class="getUrl">复制链接</a>
+					</div>
+				<% } %>
+			<% }) %>
+		</div>
+	</section>
+	<footer class="footer">
+		<p>图片CDN上传工具</p>
+	</footer>
+	<script type="text/javascript" src="/javascripts/formCheck.js"></script>
+</body>
+</html>
